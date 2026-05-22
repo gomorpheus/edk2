@@ -54,16 +54,26 @@ fi
 log "Building BaseTools"
 make -C BaseTools
 
-# --------------------------------------------------
 log "Setting up EDK2 environment"
 
 export WORKSPACE="$EDK2_DIR"
+export EDK_TOOLS_PATH="$EDK2_DIR/BaseTools"
 export PYTHON_COMMAND=python3
+export TOOL_CHAIN_TAG=GCC5
 
-# EDK2 setup scripts are not nounset-safe
 set +u
-. edksetup.sh --reconfig
+source edksetup.sh --reconfig
 set -u
+
+echo "WORKSPACE=$WORKSPACE"
+echo "EDK_TOOLS_PATH=$EDK_TOOLS_PATH"
+echo "CONF_PATH=$CONF_PATH"
+echo "TOOL_CHAIN_TAG=$TOOL_CHAIN_TAG"
+
+if ! grep -q "GCC5" "$CONF_PATH/tools_def.txt"; then
+    echo "ERROR: GCC5 toolchain missing from tools_def.txt"
+    exit 1
+fi
 
 # --------------------------------------------------
 if [[ "$MODE" == "secure" ]]; then
