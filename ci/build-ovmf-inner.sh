@@ -68,13 +68,14 @@ find BaseTools -name build | head
 log "Setting up EDK2 environment"
 
 export WORKSPACE="$EDK2_DIR"
-export EDK_TOOLS_PATH="$EDK2_DIR/BaseTools"
 export PYTHON_COMMAND=python3
-export TOOL_CHAIN_TAG=GCC5
 
 set +u
 source edksetup.sh --reconfig
 set -u
+
+export EDK_TOOLS_PATH="$EDK2_DIR/BaseTools"
+export TOOL_CHAIN_TAG=GCC5
 
 echo "WORKSPACE=$WORKSPACE"
 echo "EDK_TOOLS_PATH=$EDK_TOOLS_PATH"
