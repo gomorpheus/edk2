@@ -27,7 +27,7 @@ jobs:
       BUILD_TYPE: ${{ github.event.inputs.build_type || 'both' }}
 
     container:
-      image: ghcr.io/tianocore/containers/ubuntu-24-test:latest
+      image: ghcr.io/tianocore/containers/ubuntu-24-test:51b0b07
       options: --user 0:0
 
     steps:
