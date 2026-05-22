@@ -23,7 +23,7 @@ log() {
 # Resolve workspace safely (GitHub Actions / local / container)
 EDK2_DIR="${GITHUB_WORKSPACE:-$(pwd)}"
 BUILD_DIR="$EDK2_DIR/Build"
-OUT_DIR="$BUILD_DIR/OvmfX64/RELEASE_GCC5/FV"
+OUT_DIR="$BUILD_DIR/OvmfX64/RELEASE_GCC/FV"
 
 GIT_TAG="${GIT_TAG:-}"
 
