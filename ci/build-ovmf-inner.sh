@@ -54,6 +54,17 @@ fi
 log "Building BaseTools"
 make -C BaseTools
 
+echo "gcc version:"
+gcc --version || true
+
+echo
+echo "Python version:"
+python3 --version || true
+
+echo
+echo "Checking BaseTools output..."
+find BaseTools -name build | head
+
 log "Setting up EDK2 environment"
 
 export WORKSPACE="$EDK2_DIR"
