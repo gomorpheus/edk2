@@ -91,7 +91,7 @@ fi
 if [[ "$MODE" == "secure" ]]; then
   log "Secure Boot build"
 
-  build -a X64 -t GCC5 -b RELEASE \
+  build -a X64 -t GCC -b RELEASE \
     -p OvmfPkg/OvmfPkgX64.dsc \
     -D SECURE_BOOT_ENABLE=TRUE \
     -D TPM2_ENABLE=TRUE \
@@ -126,7 +126,7 @@ fi
 if [[ "$MODE" == "standard" ]]; then
   log "Standard Release build"
 
-  build -a X64 -t GCC5 -b RELEASE \
+  build -a X64 -t GCC -b RELEASE \
     -p OvmfPkg/OvmfPkgX64.dsc
 
   log "Standard Release build completed successfully"
